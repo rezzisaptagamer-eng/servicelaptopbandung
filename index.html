@@ -501,9 +501,28 @@ counter.innerText=target;
 update();
 });
 
+<script>
+if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  // matikan particle background di HP
+  const canvas = document.getElementById('particles');
+  if(canvas){
+    canvas.style.display = "none";
+  }
+
+  // matikan 3D hero effect
+  document.removeEventListener('mousemove', ()=>{});
+
+  // matikan scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => {
+    el.style.opacity = "1";
+    el.style.transform = "none";
+  });
+}
 </script>
 
 </body>
 </html>
+
 
 
