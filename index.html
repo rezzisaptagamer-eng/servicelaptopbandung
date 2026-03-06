@@ -138,6 +138,17 @@ background-repeat:no-repeat;
 background-size:cover;
 }
 
+  /* SCROLL REVEAL */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
 .modal img{
 max-width:90%;
 max-height:90%;
@@ -417,29 +428,25 @@ canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 });
 
-// 3D HERO DEPTH EFFECT
-const hero = document.querySelector('.hero');
-document.addEventListener('mousemove', (e) => {
-  const x = (window.innerWidth / 2 - e.pageX) / 40;
-  const y = (window.innerHeight / 2 - e.pageY) / 40;
-  hero.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-  
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.card, .testimonial');
+reveals.forEach(el => el.classList.add('reveal'));
+
+window.addEventListener('scroll', () => {
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add('active');
+    }
+  });
+});
 </script>
 
 
 
-<!-- IMAGE MODAL -->
-<div id="imageModal" class="modal" onclick="closeModal()">
-<img id="modalImg">
-</div>
-
 <script>
-function openModal(src){
-const modal=document.getElementById('imageModal');
-const img=document.getElementById('modalImg');
-img.src=src;
-modal.style.display='flex';
-}
+
 
 function closeModal(){
 document.getElementById('imageModal').style.display='none';
@@ -484,6 +491,7 @@ if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 
 </body>
 </html>
+
 
 
 
