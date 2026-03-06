@@ -1016,6 +1016,17 @@ if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 </script>
 <script>
 
+// tampilkan review saat halaman selesai load
+window.addEventListener("load", function(){
+
+let data = localStorage.getItem("reviews");
+
+if(data){
+document.getElementById("reviewList").innerHTML = data;
+}
+
+});
+
 function kirimReview(){
 
 let nama=document.getElementById("namaReview").value;
@@ -1027,7 +1038,7 @@ alert("Isi nama dan ulasan dulu");
 return;
 }
 
-let reviewHTML=`
+let reviewHTML = `
 <div class="testimonial">
 <div class="stars">${bintang}</div>
 <p>"${isi}"</p>
@@ -1035,7 +1046,11 @@ let reviewHTML=`
 </div>
 `;
 
-document.getElementById("reviewList").innerHTML+=reviewHTML;
+let reviewList = document.getElementById("reviewList");
+
+reviewList.innerHTML += reviewHTML;
+
+localStorage.setItem("reviews", reviewList.innerHTML);
 
 document.getElementById("namaReview").value="";
 document.getElementById("isiReview").value="";
@@ -1045,4 +1060,5 @@ document.getElementById("isiReview").value="";
 </script>
 
 </body></html> 
+
 
