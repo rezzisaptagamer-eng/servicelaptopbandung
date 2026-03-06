@@ -370,7 +370,50 @@ perbaikan virus, dan berbagai masalah komputer lainnya.
 
 </p></div></section>  <section><div class="container"><h2>Service Laptop Bandung Profesional</h2><p>Kami melayani service laptop panggilan area Bandung Kota, Cimahi, Soreang, Baleendah, Dayeuhkolot dan sekitarnya.Teknisi berpengalaman siap membantu instal ulang Windows, upgrade SSD, upgrade RAM, serta perbaikan laptop lemot atau terkena virus.
 
-</p><p>Layanan kami cepat, aman, dan bisa datang langsung ke rumah Anda. Konsultasi gratis melalui WhatsApp.</p></div></section><footer>© 2015 Sapta Prime Tech Bandung</footer><a href="https://wa.me/6281222229455" class="floating-wa">💬</a><!-- PARTICLE NETWORK BACKGROUND --><canvas id="particles" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;"></canvas><script>
+</p><p>Layanan kami cepat, aman, dan bisa datang langsung ke rumah Anda. Konsultasi gratis melalui WhatsApp.</p></div></section>
+    </section>
+
+<section id="rating">
+<div class="container">
+
+<h2>ULASAN PELANGGAN</h2>
+
+<div id="reviewList"></div>
+
+<h3 style="margin-top:40px;">Tambah Ulasan</h3>
+
+<input id="namaReview" placeholder="Nama Anda"
+style="padding:10px;width:100%;max-width:400px;margin:10px 0;border-radius:8px;border:none;">
+
+<select id="bintangReview"
+style="padding:10px;width:200px;border-radius:8px;border:none;">
+<option value="★★★★★">★★★★★</option>
+<option value="★★★★">★★★★</option>
+<option value="★★★">★★★</option>
+<option value="★★">★★</option>
+<option value="★">★</option>
+</select>
+
+<br><br>
+
+<textarea id="isiReview"
+placeholder="Tulis pengalaman service..."
+style="padding:10px;width:100%;max-width:500px;height:100px;border-radius:8px;border:none;"></textarea>
+
+<br><br>
+
+<button onclick="kirimReview()"
+style="padding:12px 30px;background:#00ffc3;border:none;border-radius:30px;font-weight:bold;">
+Kirim Ulasan
+</button>
+
+</div>
+</section>
+
+<footer>
+© 2015 Sapta Prime Tech Bandung
+</footer>
+    <footer>© 2015 Sapta Prime Tech Bandung</footer><a href="https://wa.me/6281222229455" class="floating-wa">💬</a><!-- PARTICLE NETWORK BACKGROUND --><canvas id="particles" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;"></canvas><script>
     
   
     
@@ -905,4 +948,36 @@ if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
   
     
 }
-</script></body></html> 
+</script>
+<script>
+
+function kirimReview(){
+
+let nama=document.getElementById("namaReview").value;
+let bintang=document.getElementById("bintangReview").value;
+let isi=document.getElementById("isiReview").value;
+
+if(nama=="" || isi==""){
+alert("Isi nama dan ulasan dulu");
+return;
+}
+
+let reviewHTML=`
+<div class="testimonial">
+<div class="stars">${bintang}</div>
+<p>"${isi}"</p>
+<strong>- ${nama}</strong>
+</div>
+`;
+
+document.getElementById("reviewList").innerHTML+=reviewHTML;
+
+document.getElementById("namaReview").value="";
+document.getElementById("isiReview").value="";
+
+}
+
+</script>
+
+</body></html> 
+
