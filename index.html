@@ -7,11 +7,9 @@
 
 <title>Service Laptop Bandung Panggilan | Instal Ulang Windows & Upgrade SSD</title>
 
-<meta name="description" content="Jasa service laptop Bandung panggilan. Instal ulang Windows, upgrade SSD, tambah RAM, service komputer area Bandung dan sekitarnya.">
+<meta name="description" content="Service laptop Bandung panggilan. Instal ulang Windows, upgrade SSD, tambah RAM, bersih virus area Bandung dan sekitarnya.">
 
 <meta name="keywords" content="service laptop bandung, instal ulang windows bandung, upgrade ssd bandung">
-
-<meta name="robots" content="index, follow">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -21,11 +19,11 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Poppins;
 }
 
 body{
-background:#0a0a0a;
+background:#000;
 color:white;
 }
 
@@ -42,7 +40,7 @@ z-index:999;
 }
 
 nav img{
-height:36px;
+height:40px;
 }
 
 nav ul{
@@ -73,36 +71,42 @@ border-radius:20px;
 }
 
 h1{
-font-size:38px;
+font-size:42px;
 font-weight:800;
 color:#00ffc3;
+
 text-shadow:
-0 0 6px #00ffc3,
-0 0 12px #00ffc3,
-0 0 20px rgba(0,255,195,0.7);
+0 0 10px #00ffc3,
+0 0 20px #00ffc3,
+0 0 40px #00ffc3,
+0 0 60px rgba(0,255,195,0.8);
 }
 
 .hero h2{
 color:#00ffc3;
+margin-top:15px;
+}
+
+.hero p{
 margin-top:10px;
+color:#ccc;
 }
 
 .wa-btn{
 display:inline-block;
-margin-top:25px;
+margin-top:30px;
 padding:15px 40px;
 background:linear-gradient(135deg,#00ffb3,#00c896);
-color:black;
 border-radius:40px;
-font-weight:700;
+color:black;
+font-weight:bold;
 text-decoration:none;
-box-shadow:0 0 20px rgba(0,255,195,0.7);
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 margin-top:40px;
 }
 
@@ -175,43 +179,42 @@ color:white;
 text-decoration:none;
 }
 
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:0.8s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
 </style>
 </head>
 
 <body>
 
 <nav>
+
 <img src="logo.jpg">
+
 <ul>
 <li><a href="#layanan">Layanan</a></li>
 <li><a href="#testimoni">Testimoni</a></li>
 <li><a href="#review">Ulasan</a></li>
 <li><a href="#kontak">Kontak</a></li>
 </ul>
+
 </nav>
 
-<section id="home">
+
+<section>
 
 <div class="container">
 
 <div class="hero">
 
-<h1>Service Laptop Bandung Panggilan</h1>
+<h1>
+Service Laptop Bandung Panggilan
+</h1>
 
-<h2>Instal Ulang Windows • Upgrade SSD • Tambah RAM</h2>
+<h2>
+Instal Ulang Windows • Upgrade SSD • Tambah RAM
+</h2>
 
-<p>Service laptop area Bandung, Cimahi, Soreang dan sekitarnya.</p>
+<p>
+Service laptop area Bandung, Cimahi, Soreang dan sekitarnya.
+</p>
 
 <a href="https://wa.me/6281222229455" class="wa-btn">
 WhatsApp Sekarang
@@ -223,15 +226,16 @@ WhatsApp Sekarang
 
 </section>
 
+
 <section id="layanan">
 
 <div class="container">
 
 <h2>LAYANAN KAMI</h2>
 
-<div class="grid reveal">
+<div class="grid">
 
-<div class="card">Service Laptop</div>
+<div class="card">Service Laptop / PC</div>
 <div class="card">Instal Ulang Windows</div>
 <div class="card">Upgrade SSD</div>
 <div class="card">Upgrade RAM</div>
@@ -244,17 +248,18 @@ WhatsApp Sekarang
 
 </section>
 
+
 <section id="testimoni">
 
 <div class="container">
 
-<h2>TESTIMONI</h2>
+<h2>TESTIMONI PELANGGAN</h2>
 
-<div class="grid reveal">
+<div class="grid">
 
 <div class="testimonial">
 <img src="t1.jpg">
-<p>"Laptop jadi cepat lagi."</p>
+<p>"Laptop saya jadi cepat lagi."</p>
 <strong>Andi - Bandung</strong>
 </div>
 
@@ -275,6 +280,7 @@ WhatsApp Sekarang
 </div>
 
 </section>
+
 
 <section id="review">
 
@@ -311,6 +317,7 @@ WhatsApp Sekarang
 
 </section>
 
+
 <section id="kontak">
 
 <div class="container">
@@ -327,6 +334,7 @@ Chat WhatsApp
 
 </section>
 
+
 <footer>
 
 © 2015 Sapta Prime Tech Bandung
@@ -335,24 +343,8 @@ Chat WhatsApp
 
 <a href="https://wa.me/6281222229455" class="floating-wa">💬</a>
 
+
 <script>
-
-const reveals=document.querySelectorAll(".reveal")
-
-window.addEventListener("scroll",()=>{
-
-reveals.forEach(el=>{
-
-const top=el.getBoundingClientRect().top
-const height=window.innerHeight
-
-if(top<height-100){
-el.classList.add("active")
-}
-
-})
-
-})
 
 let rating=5
 
