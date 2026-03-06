@@ -49,31 +49,18 @@ color:#ffffff;
 text-shadow:0 0 10px rgba(0,255,200,0.4);
 }
 
-h1::after{
-content:"";
-position:absolute;
-top:0;
-left:-150%;
-width:35%;
-height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.9),transparent);
-transform:skewX(-25deg);
-animation:eliteSweep 4s ease-in-out infinite;
-}
-
-@keyframes eliteShine{
+{
 0%{background-position:0% 50%}
 50%{background-position:100% 50%}
 100%{background-position:0% 50%}
 }
-
-@keyframes eliteSweep{
+{
 0%{left:-150%}
 50%{left:130%}
 100%{left:130%}
 }
 
-@keyframes pulseGlow{
+{
 0%,100%{text-shadow:
 0 0 8px rgba(0,255,200,0.6),
 0 0 20px rgba(0,255,200,0.5),
@@ -482,6 +469,7 @@ if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 
 </body>
 </html>
+
 
 
 
