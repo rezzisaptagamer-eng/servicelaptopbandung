@@ -979,16 +979,6 @@ if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 </script>
 <script>
 
-// tampilkan review saat halaman selesai load
-window.addEventListener("load", function(){
-
-let data = localStorage.getItem("reviews");
-
-if(data){
-document.getElementById("reviewList").innerHTML = data;
-}
-
-});
 
 function kirimReview(){
 
@@ -1013,8 +1003,6 @@ let reviewList = document.getElementById("reviewList");
 
 reviewList.innerHTML += reviewHTML;
 
-localStorage.setItem("reviews", reviewList.innerHTML);
-
 document.getElementById("namaReview").value="";
 document.getElementById("isiReview").value="";
 
@@ -1024,7 +1012,6 @@ document.getElementById("isiReview").value="";
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
 apiKey: "ISI_API_KEY",
@@ -1168,6 +1155,7 @@ tampilReview();
 
 </script>
 </body></html> 
+
 
 
 
