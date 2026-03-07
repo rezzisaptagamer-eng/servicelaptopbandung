@@ -909,53 +909,7 @@ el.style.transform = "none";
 
 </script>
 
-<script>
 
-// REVIEW PERMANEN
-
-function tampilReview(){
-
-let data = localStorage.getItem("reviews");
-
-if(data){
-document.getElementById("reviewList").innerHTML=data;
-}
-
-}
-
-function kirimReview(){
-
-let nama=document.getElementById("namaReview").value;
-let bintang=document.getElementById("bintangReview").value;
-let isi=document.getElementById("isiReview").value;
-
-if(nama=="" || isi==""){
-alert("Isi nama dan ulasan dulu");
-return;
-}
-
-let reviewHTML=`
-<div class="testimonial">
-<div class="stars">${bintang}</div>
-<p>"${isi}"</p>
-<strong>- ${nama}</strong>
-</div>
-`;
-
-document.getElementById("reviewList").innerHTML+=reviewHTML;
-
-localStorage.setItem("reviews", document.getElementById("reviewList").innerHTML);
-
-document.getElementById("namaReview").value="";
-document.getElementById("isiReview").value="";
-
-}
-
-tampilReview();
-
-</script>
-    
-  
     
 if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
     
@@ -1141,7 +1095,80 @@ loadReviews();
 window.addEventListener("load",loadReviews);
 
 </script>
+   <!-- FIREBASE REVIEW SYSTEM -->
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyCRHcYufSQhBNZdd0NV4YftPcW8jXOLABA",
+authDomain: "sapta-prime-tech.firebaseapp.com",
+projectId: "sapta-prime-tech",
+storageBucket: "sapta-prime-tech.firebasestorage.app",
+messagingSenderId: "1077724145007",
+appId: "1:1077724145007:web:c6f5a14236de319b8c749a"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const reviewList = document.getElementById("reviewList");
+
+function tampilReview(){
+
+const q = collection(db,"reviews");
+
+onSnapshot(q,(snapshot)=>{
+
+reviewList.innerHTML="";
+
+snapshot.forEach((doc)=>{
+
+const data = doc.data();
+
+reviewList.innerHTML += `
+<div class="testimonial">
+<div class="stars">${data.bintang}</div>
+<p>"${data.isi}"</p>
+<strong>- ${data.nama}</strong>
+</div>
+`;
+
+});
+
+});
+
+}
+
+window.kirimReview = async function(){
+
+let nama=document.getElementById("namaReview").value;
+let bintang=document.getElementById("bintangReview").value;
+let isi=document.getElementById("isiReview").value;
+
+if(nama=="" || isi==""){
+alert("Isi nama dan ulasan dulu");
+return;
+}
+
+await addDoc(collection(db,"reviews"),{
+nama:nama,
+bintang:bintang,
+isi:isi
+});
+
+document.getElementById("namaReview").value="";
+document.getElementById("isiReview").value="";
+
+}
+
+tampilReview();
+
+</script>
 </body></html> 
+
 
 
 
