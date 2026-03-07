@@ -1067,8 +1067,82 @@ document.getElementById("isiReview").value="";
 }
 
 </script>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "ISI_API_KEY",
+authDomain: "ISI_PROJECT.firebaseapp.com",
+projectId: "ISI_PROJECT",
+storageBucket: "ISI_PROJECT.appspot.com",
+messagingSenderId: "XXXX",
+appId: "XXXX"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+
+// tampilkan review dari database
+async function loadReviews(){
+
+const querySnapshot = await getDocs(collection(db,"reviews"));
+
+const list = document.getElementById("reviewList");
+
+list.innerHTML="";
+
+querySnapshot.forEach((doc)=>{
+
+const data = doc.data();
+
+list.innerHTML += `
+<div class="testimonial">
+<div class="stars">${data.bintang}</div>
+<p>"${data.isi}"</p>
+<strong>- ${data.nama}</strong>
+</div>
+`;
+
+});
+
+}
+
+
+// kirim review
+window.kirimReview = async function(){
+
+let nama=document.getElementById("namaReview").value;
+let bintang=document.getElementById("bintangReview").value;
+let isi=document.getElementById("isiReview").value;
+
+if(nama=="" || isi==""){
+alert("Isi nama dan ulasan dulu");
+return;
+}
+
+await addDoc(collection(db,"reviews"),{
+nama:nama,
+bintang:bintang,
+isi:isi
+});
+
+alert("Ulasan berhasil dikirim");
+
+document.getElementById("namaReview").value="";
+document.getElementById("isiReview").value="";
+
+loadReviews();
+
+}
+
+window.addEventListener("load",loadReviews);
+
+</script>
 </body></html> 
+
 
 
 
