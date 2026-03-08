@@ -19,7 +19,42 @@ margin:0;
 font-family:'Poppins',sans-serif;
 background:#020617;
 color:white;
+scroll-behavior:smooth;
 }
+
+/* loading screen */
+
+.loader{
+
+position:fixed;
+width:100%;
+height:100vh;
+
+background:#020617;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+
+}
+
+.loader img{
+
+width:180px;
+animation:spin 4s linear infinite;
+
+}
+
+@keyframes spin{
+
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+
+}
+
+/* hero */
 
 .hero{
 
@@ -36,19 +71,24 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-text-align:center;
 
+text-align:center;
 padding:20px;
+
 }
 
 .hero h1{
-font-size:48px;
-margin-bottom:15px;
+
+font-size:50px;
+margin-bottom:10px;
+
 }
 
 .hero p{
+
 max-width:600px;
 opacity:0.9;
+
 }
 
 .cta{
@@ -60,28 +100,41 @@ padding:18px 35px;
 
 border-radius:40px;
 text-decoration:none;
+
 color:white;
 
 font-weight:600;
+
 font-size:18px;
 
 transition:0.3s;
+
 }
 
 .cta:hover{
-transform:scale(1.05);
+
+transform:scale(1.08);
+
 }
 
+/* section */
+
 .section{
-padding:80px 20px;
+
+padding:90px 20px;
 max-width:1100px;
 margin:auto;
+
 }
 
 .section h2{
+
 text-align:center;
 margin-bottom:40px;
+
 }
+
+/* services */
 
 .services{
 
@@ -94,25 +147,31 @@ gap:20px;
 .card{
 
 background:#1e293b;
+
 padding:30px;
 border-radius:16px;
+
 text-align:center;
 
-transition:0.3s;
+transition:0.4s;
 
 }
 
 .card:hover{
 
-transform:translateY(-10px);
+transform:translateY(-12px);
 background:#334155;
 
 }
 
+/* gallery */
+
 .gallery{
 
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
 gap:15px;
 
 }
@@ -121,13 +180,24 @@ gap:15px;
 
 width:100%;
 border-radius:10px;
+transition:0.4s;
 
 }
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+}
+
+/* testimoni */
 
 .testimoni{
 
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
 gap:20px;
 
 }
@@ -137,7 +207,10 @@ gap:20px;
 background:#1e293b;
 padding:25px;
 border-radius:12px;
+
 }
+
+/* whatsapp button */
 
 .whatsapp{
 
@@ -162,6 +235,27 @@ box-shadow:0 0 20px rgba(0,0,0,0.4);
 
 }
 
+/* popup */
+
+.popup{
+
+position:fixed;
+
+bottom:90px;
+right:20px;
+
+background:#1e293b;
+
+padding:18px;
+
+border-radius:12px;
+
+max-width:250px;
+
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+
+}
+
 footer{
 
 background:#020617;
@@ -176,6 +270,14 @@ padding:40px;
 
 
 <body>
+
+
+<div class="loader" id="loader">
+
+<img src="logo.jpg">
+
+</div>
+
 
 <section class="hero">
 
@@ -209,22 +311,6 @@ Chat WhatsApp Sekarang
 <div class="card">Upgrade RAM</div>
 <div class="card">Instal Aplikasi</div>
 <div class="card">Service Laptop Panggilan</div>
-
-</div>
-
-</section>
-
-
-<section class="section">
-
-<h2>Kenapa Pilih Sapta Prime Tech?</h2>
-
-<div class="services">
-
-<div class="card">Teknisi Berpengalaman</div>
-<div class="card">Bisa Panggilan ke Rumah</div>
-<div class="card">Proses Cepat</div>
-<div class="card">Harga Terjangkau</div>
 
 </div>
 
@@ -282,11 +368,34 @@ Service panggilan sangat membantu. Tidak perlu keluar rumah.
 </footer>
 
 
+<div class="popup">
+
+Butuh service laptop?  
+Klik WhatsApp untuk konsultasi gratis.
+
+</div>
+
+
 <a class="whatsapp" href="https://wa.me/6281222229455">
 
 Chat WA
 
 </a>
+
+
+<script>
+
+window.onload=function(){
+
+setTimeout(function(){
+
+document.getElementById("loader").style.display="none";
+
+},1500);
+
+}
+
+</script>
 
 
 </body>
