@@ -1022,36 +1022,7 @@ list.innerHTML += `
 }
 
 
-// kirim review
-window.kirimReview = async function(){
 
-let nama=document.getElementById("namaReview").value;
-let bintang=document.getElementById("bintangReview").value;
-let isi=document.getElementById("isiReview").value;
-
-if(nama=="" || isi==""){
-alert("Isi nama dan ulasan dulu");
-return;
-}
-
-await addDoc(collection(db,"reviews"),{
-nama:nama,
-bintang:bintang,
-isi:isi
-});
-
-alert("Ulasan berhasil dikirim");
-
-document.getElementById("namaReview").value="";
-document.getElementById("isiReview").value="";
-
-loadReviews();
-
-}
-
-window.addEventListener("load",loadReviews);
-
-</script>
    <!-- FIREBASE REVIEW SYSTEM -->
 
 <script type="module">
@@ -1139,5 +1110,6 @@ tampilReview();
 
 
 10
+
 
 
