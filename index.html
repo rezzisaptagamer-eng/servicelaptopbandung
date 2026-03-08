@@ -17,6 +17,7 @@ margin:0;
 font-family:'Poppins',sans-serif;
 background:#020617;
 color:white;
+overflow-x:hidden;
 }
 
 /* HERO */
@@ -26,7 +27,7 @@ color:white;
 height:100vh;
 
 background:
-linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)),
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
 url('logo.jpg');
 
 background-size:cover;
@@ -46,12 +47,31 @@ padding:20px;
 
 .hero h1{
 
-font-size:52px;
+font-size:55px;
 
 text-shadow:
-0 0 10px #00f7ff,
-0 0 20px #00f7ff,
-0 0 40px #00f7ff;
+0 0 10px #00eaff,
+0 0 20px #00eaff,
+0 0 40px #00eaff;
+
+}
+
+/* FLOAT LOGO */
+
+.logo{
+
+width:120px;
+margin-bottom:20px;
+
+animation:float 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0px);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0px);}
 
 }
 
@@ -62,7 +82,6 @@ text-shadow:
 margin-top:30px;
 
 background:#22c55e;
-
 padding:18px 35px;
 
 border-radius:40px;
@@ -133,8 +152,6 @@ text-align:center;
 
 transition:0.4s;
 
-transform-style:preserve-3d;
-
 }
 
 .card:hover{
@@ -163,7 +180,7 @@ width:100%;
 
 border-radius:10px;
 
-transition:0.3s;
+transition:0.4s;
 
 }
 
@@ -179,7 +196,7 @@ transform:scale(1.05);
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
 gap:25px;
 
@@ -200,7 +217,6 @@ text-align:center;
 .review img{
 
 width:60px;
-
 height:60px;
 
 border-radius:50%;
@@ -216,7 +232,6 @@ margin-bottom:10px;
 position:fixed;
 
 bottom:20px;
-
 right:20px;
 
 background:#25D366;
@@ -254,6 +269,8 @@ background:#020617;
 
 
 <section class="hero">
+
+<img src="logo.jpg" class="logo">
 
 <h1>Service Laptop Bandung</h1>
 
@@ -325,7 +342,7 @@ Chat WhatsApp
 
 ⭐⭐⭐⭐⭐
 
-<p>Service cepat dan profesional. Laptop saya jadi lancar.</p>
+<p>Laptop saya lemot jadi cepat lagi. Teknisi ramah.</p>
 
 </div>
 
@@ -335,7 +352,7 @@ Chat WhatsApp
 
 ⭐⭐⭐⭐⭐
 
-<p>Teknisi ramah dan datang ke rumah. Sangat membantu.</p>
+<p>Service panggilan sangat membantu.</p>
 
 </div>
 
@@ -355,7 +372,7 @@ Chat WhatsApp
 
 ⭐⭐⭐⭐⭐
 
-<p>Harga terjangkau dan hasil memuaskan.</p>
+<p>Harga terjangkau dan profesional.</p>
 
 </div>
 
