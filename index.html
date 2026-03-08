@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
 
 <meta charset="UTF-8">
@@ -20,270 +19,189 @@ color:white;
 overflow-x:hidden;
 }
 
-/* HERO */
+/* animated background particles */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* hero */
 
 .hero{
-
 height:100vh;
-
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
-url('logo.jpg');
-
-background-size:cover;
-background-position:center;
-
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-
 text-align:center;
 padding:20px;
-
 }
 
-/* GLOW TEXT */
-
-.hero h1{
-
-font-size:55px;
-
-text-shadow:
-0 0 10px #00eaff,
-0 0 20px #00eaff,
-0 0 40px #00eaff;
-
-}
-
-/* FLOAT LOGO */
-
-.logo{
-
-width:120px;
+.hero img{
+width:130px;
 margin-bottom:20px;
-
-animation:float 4s ease-in-out infinite;
-
+animation:float 5s ease-in-out infinite;
 }
 
 @keyframes float{
-
-0%{transform:translateY(0px);}
-50%{transform:translateY(-20px);}
-100%{transform:translateY(0px);}
-
+0%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+100%{transform:translateY(0)}
 }
 
-/* BUTTON */
+/* neon text */
+
+.hero h1{
+font-size:55px;
+
+text-shadow:
+0 0 10px #00f7ff,
+0 0 20px #00f7ff,
+0 0 40px #00f7ff;
+}
+
+/* button */
 
 .cta{
-
 margin-top:30px;
-
 background:#22c55e;
 padding:18px 35px;
-
 border-radius:40px;
-
 text-decoration:none;
-
 color:white;
-
 font-weight:600;
-
-font-size:18px;
-
-transition:0.3s;
-
+transition:.3s;
 }
 
 .cta:hover{
-
 transform:scale(1.1);
-
 }
 
-/* SECTION */
+/* section */
 
 .section{
-
-padding:90px 20px;
-
+padding:80px 20px;
 max-width:1100px;
-
 margin:auto;
-
 }
 
 .section h2{
-
 text-align:center;
-
 margin-bottom:40px;
-
 text-shadow:0 0 10px #38bdf8;
-
 }
 
-/* SERVICES */
+/* services grid */
 
 .services{
-
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
+gap:20px;
 }
 
-/* 3D CARD */
+/* glass card */
 
 .card{
 
-background:#1e293b;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(8px);
 
 padding:30px;
-
 border-radius:15px;
 
 text-align:center;
 
-transition:0.4s;
+transition:.4s;
 
 }
 
 .card:hover{
-
 transform:rotateX(10deg) rotateY(10deg) scale(1.05);
-
-background:#334155;
-
 }
 
-/* GALLERY */
+/* gallery */
 
 .gallery{
-
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
 gap:15px;
-
 }
 
 .gallery img{
-
 width:100%;
-
 border-radius:10px;
-
-transition:0.4s;
-
+transition:.4s;
 }
 
 .gallery img:hover{
-
 transform:scale(1.05);
-
 }
 
-/* TESTIMONI */
+/* testimoni */
 
 .testimoni{
-
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
 gap:25px;
-
 }
 
 .review{
-
 background:#1e293b;
-
 padding:20px;
-
 border-radius:12px;
-
 text-align:center;
-
 }
 
 .review img{
-
 width:60px;
 height:60px;
-
 border-radius:50%;
-
 margin-bottom:10px;
-
 }
 
-/* WHATSAPP */
+/* whatsapp */
 
 .whatsapp{
-
 position:fixed;
-
 bottom:20px;
 right:20px;
-
 background:#25D366;
-
 padding:15px 25px;
-
 border-radius:30px;
-
 text-decoration:none;
-
 color:white;
-
 font-weight:bold;
-
 box-shadow:0 0 20px rgba(0,0,0,0.4);
-
 }
 
 footer{
-
 text-align:center;
-
 padding:40px;
-
-background:#020617;
-
 }
 
 </style>
 
 </head>
 
-
 <body>
 
+<canvas id="particles"></canvas>
 
 <section class="hero">
 
-<img src="logo.jpg" class="logo">
+<img src="logo.jpg">
 
 <h1>Service Laptop Bandung</h1>
 
 <p>
-
-Sapta Prime Tech melayani service laptop panggilan ke rumah & kantor di Bandung.
-
+Sapta Prime Tech melayani service laptop panggilan ke rumah dan kantor di Bandung.
 </p>
 
 <a class="cta" href="https://wa.me/6281222229455">
-
 Chat WhatsApp
-
 </a>
 
 </section>
@@ -296,15 +214,10 @@ Chat WhatsApp
 <div class="services">
 
 <div class="card">Service Laptop Lemot</div>
-
 <div class="card">Instal Ulang Windows</div>
-
 <div class="card">Upgrade SSD</div>
-
 <div class="card">Upgrade RAM</div>
-
 <div class="card">Instal Software</div>
-
 <div class="card">Service Laptop Panggilan</div>
 
 </div>
@@ -337,43 +250,27 @@ Chat WhatsApp
 <div class="testimoni">
 
 <div class="review">
-
 <img src="d1.jpg">
-
 ⭐⭐⭐⭐⭐
-
 <p>Laptop saya lemot jadi cepat lagi. Teknisi ramah.</p>
-
 </div>
 
 <div class="review">
-
 <img src="d2.jpg">
-
 ⭐⭐⭐⭐⭐
-
 <p>Service panggilan sangat membantu.</p>
-
 </div>
 
 <div class="review">
-
 <img src="d3.jpg">
-
 ⭐⭐⭐⭐⭐
-
 <p>Instal ulang Windows cepat dan rapi.</p>
-
 </div>
 
 <div class="review">
-
 <img src="d4.jpg">
-
 ⭐⭐⭐⭐⭐
-
 <p>Harga terjangkau dan profesional.</p>
-
 </div>
 
 </div>
@@ -389,12 +286,51 @@ Chat WhatsApp
 
 
 <a class="whatsapp" href="https://wa.me/6281222229455">
-
 Chat WA
-
 </a>
 
 
-</body>
+<script>
 
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:Math.random()-0.5,
+dy:Math.random()-0.5
+})
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="white";
+ctx.fill();
+
+p.x+=p.dx;
+p.y+=p.dy;
+
+})
+
+requestAnimationFrame(animate)
+}
+
+animate();
+
+</script>
+
+</body>
 </html>
