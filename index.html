@@ -1021,55 +1021,7 @@ list.innerHTML += `
 
 }
 
-
-
-   <!-- FIREBASE REVIEW SYSTEM -->
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-apiKey: "AIzaSyCRHcYufSQhBNZdd0NV4YftPcW8jXOLABA",
-authDomain: "sapta-prime-tech.firebaseapp.com",
-projectId: "sapta-prime-tech",
-storageBucket: "sapta-prime-tech.firebasestorage.app",
-messagingSenderId: "1077724145007",
-appId: "1:1077724145007:web:c6f5a14236de319b8c749a"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const reviewList = document.getElementById("reviewList");
-
-function tampilReview(){
-
-const q = collection(db,"reviews");
-
-onSnapshot(q,(snapshot)=>{
-
-reviewList.innerHTML="";
-
-snapshot.forEach((doc)=>{
-
-const data = doc.data();
-
-reviewList.innerHTML += `
-<div class="testimonial">
-<div class="stars">${data.bintang}</div>
-<p>"${data.isi}"</p>
-<strong>- ${data.nama}</strong>
-</div>
-`;
-
-});
-
-});
-
-}
-
+// kirim review
 window.kirimReview = async function(){
 
 let nama=document.getElementById("namaReview").value;
@@ -1087,14 +1039,16 @@ bintang:bintang,
 isi:isi
 });
 
+alert("Ulasan berhasil dikirim");
+
 document.getElementById("namaReview").value="";
 document.getElementById("isiReview").value="";
 
+loadReviews();
+
 }
+window.addEventListener("load", loadReviews);
 
-tampilReview();
-
-</script>
 </body></html> 
 
 
@@ -1110,6 +1064,7 @@ tampilReview();
 
 
 10
+
 
 
 
