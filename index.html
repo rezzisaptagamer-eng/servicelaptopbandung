@@ -977,50 +977,7 @@ if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
     
 }
 </script>
-<script>
 
-// tampilkan review saat halaman selesai load
-window.addEventListener("load", function(){
-
-let data = localStorage.getItem("reviews");
-
-if(data){
-document.getElementById("reviewList").innerHTML = data;
-}
-
-});
-
-function kirimReview(){
-
-let nama=document.getElementById("namaReview").value;
-let bintang=document.getElementById("bintangReview").value;
-let isi=document.getElementById("isiReview").value;
-
-if(nama=="" || isi==""){
-alert("Isi nama dan ulasan dulu");
-return;
-}
-
-let reviewHTML = `
-<div class="testimonial">
-<div class="stars">${bintang}</div>
-<p>"${isi}"</p>
-<strong>- ${nama}</strong>
-</div>
-`;
-
-let reviewList = document.getElementById("reviewList");
-
-reviewList.innerHTML += reviewHTML;
-
-localStorage.setItem("reviews", reviewList.innerHTML);
-
-document.getElementById("namaReview").value="";
-document.getElementById("isiReview").value="";
-
-}
-
-</script>
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -1182,4 +1139,5 @@ tampilReview();
 
 
 10
+
 
